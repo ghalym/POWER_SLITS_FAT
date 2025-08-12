@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_PowerSlits" Id="{46b6b3f6-043f-49ad-a051-bb3a3d9105ac}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_PowerSlits
+VAR
+	
+  fbSL1L1: FB_SLITS_POWER;
+
+    {attribute 'pytmc' := '
+    pv: fbSL1L1:POWER:GO;
+    io: io;
+    field: ZNAM False;
+    field: ONAM True;
+    '}
+    bExecuteMotion:BOOL ;
+
+
+
+    bMoveOk:BOOL :=TRUE;
+
+     (*Offsets*)
+    (* Absolute encoder value at the HLS + Absolute encoder value at the centered beam *)
+    rEncoderOffsetTop: REAL := 0;
+    rEncoderOffsetBottom: REAL := 0;
+    rEncoderOffsetNorth: REAL := 0;
+    rEncoderOffsetSouth: REAL := 0;
+
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+fbSL1L1.rEncoderOffsetTop := rEncoderOffsetTop;
+fbSL1L1.rEncoderOffsetBottom := rEncoderOffsetBottom;
+fbSL1L1.rEncoderOffsetNorth := rEncoderOffsetNorth;
+fbSL1L1.rEncoderOffsetSouth := rEncoderOffsetSouth;
+
+fbSL1L1.bMoveOk := bMoveOk;
+fbSL1L1(stTopBlade:=  Main.M1,
+        stBottomBlade:= Main.M2,
+        stNorthBlade:=  Main.M3,
+        stSouthBlade:=  Main.M4,
+        bExecuteMotion:=bExecuteMotion);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
