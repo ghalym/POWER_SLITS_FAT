@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
   <POU Name="FB_SLITS_POWER" Id="{d889b456-91f0-0980-2255-32e7e69e3656}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_SLITS_POWER EXTENDS FB_SLITS
 VAR_INPUT
@@ -78,5 +78,13 @@ RTD_South_2();
 fbFlowSwitch();]]></ST>
       </Implementation>
     </Action>
+    <LineIds Name="FB_SLITS_POWER">
+      <LineId Id="3" Count="8" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_SLITS_POWER.ACT_RTDs">
+      <LineId Id="2" Count="10" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

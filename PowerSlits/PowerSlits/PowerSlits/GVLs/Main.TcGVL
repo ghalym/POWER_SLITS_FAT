@@ -1,16 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
   <GVL Name="Main" Id="{0e8ca8ec-2930-404d-8bf1-6ba5b0d8d34f}">
     <Declaration><![CDATA[
 VAR_GLOBAL
+//Power Slits 4 Axes
+
+	{attribute 'pytmc' := 'pv: SL1L1:POWER:MMS:BOTTOM'}
+    {attribute 'TcLinkTo' := ' .bLimitForwardEnable  := TIIB[EL7047-B02]^STM Status^Status^Digital input 2;
+        					   .bLimitBackwardEnable := TIIB[EL7047-B02]^STM Status^Status^Digital input 1;
+        					   .nRawEncoderUINT      := TIIB[EL5042-B06]^ENC Status compact^Channel 1^Counter value'}
+    M1: ST_MotionStage := (sName := 'SL1L1:POWER:MMS:BOTTOM');
 	
-		M1: ST_MotionStage := (sName := 'SL1L1:');
+	
+	{attribute 'pytmc' := 'pv: SL1L1:POWER:MMS:TOP'}
+    {attribute 'TcLinkTo' := ' .bLimitForwardEnable  := TIIB[EL7047-B03]^STM Status^Status^Digital input 2;
+        					   .bLimitBackwardEnable := TIIB[EL7047-B03]^STM Status^Status^Digital input 1;
+        					   .nRawEncoderUINT      := TIIB[EL5042-B06]^ENC Status compact^Channel 2^Counter value'}
 		
-		M2: ST_MotionStage := (sName := 'SL1L1:');
+		M2: ST_MotionStage := (sName := 'SL1L1:POWER:MMS:TOP');
 		
-		M3: ST_MotionStage := (sName := 'SL1L1:');
+		{attribute 'pytmc' := 'pv: SL1L1:POWER:MMS:NORTH'}
+    {attribute 'TcLinkTo' := ' .bLimitForwardEnable  := TIIB[EL7047-B04]^STM Status^Status^Digital input 2;
+        					   .bLimitBackwardEnable := TIIB[EL7047-B04]^STM Status^Status^Digital input 1;
+        					   .nRawEncoderUINT      := TIIB[EL5042-B07]^ENC Status compact^Channel 1^Counter value'}
 		
-		M4: ST_MotionStage := (sName := 'SL1L1:');
+		M3: ST_MotionStage := (sName := 'SL1L1:POWER:MMS:NORTH');
+		
+		{attribute 'pytmc' := 'pv: SL1L1:POWER:MMS:SOUTH'}
+    {attribute 'TcLinkTo' := ' .bLimitForwardEnable  := TIIB[EL7047-B05]^STM Status^Status^Digital input 2;
+        					   .bLimitBackwardEnable := TIIB[EL7047-B05]^STM Status^Status^Digital input 1;
+        					   .nRawEncoderUINT      := TIIB[EL5042-B07]^ENC Status compact^Channel 2^Counter value'}
+		
+		M4: ST_MotionStage := (sName := 'SL1L1:POWER:MMS:SOUTH');
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
