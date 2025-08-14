@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
   <POU Name="PLC_TASK_1" Id="{d99ae9cd-8a5b-44cf-9736-9f9943eefa8f}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PLC_TASK_1
 VAR
@@ -8,5 +8,8 @@ END_VAR
     <Implementation>
       <ST><![CDATA[PRG_PowerSlits();]]></ST>
     </Implementation>
+    <LineIds Name="PLC_TASK_1">
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

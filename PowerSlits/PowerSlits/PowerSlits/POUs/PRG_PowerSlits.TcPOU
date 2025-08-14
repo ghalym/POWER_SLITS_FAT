@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.4">
   <POU Name="PRG_PowerSlits" Id="{46b6b3f6-043f-49ad-a051-bb3a3d9105ac}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_PowerSlits
 VAR
@@ -42,5 +42,9 @@ fbSL1L1(stTopBlade:=  Main.M1,
         stSouthBlade:=  Main.M4,
         bExecuteMotion:=bExecuteMotion);]]></ST>
     </Implementation>
+    <LineIds Name="PRG_PowerSlits">
+      <LineId Id="3" Count="10" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
